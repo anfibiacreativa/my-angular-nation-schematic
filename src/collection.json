@@ -1,0 +1,13 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "my-angular-nation-schematic": {
+      "description": "A blank schematic.",
+      "factory": "./my-angular-nation-schematic/index#myAngularNationSchematic"
+    },
+    "create-structure": {
+      "description": "A schematic that helps us standarize our structure across our many angular projects.",
+      "factory": "./create-structure/index#createStructure"
+    }
+  }
+}

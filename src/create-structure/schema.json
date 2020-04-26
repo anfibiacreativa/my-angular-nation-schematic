@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "create-structure-id",
+  "title": "Create Structure Validation",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Whatever",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "path": {
+      "description": "The path to app",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      }
+    }
+  },
+  "required": [
+    "name", "path"
+  ]
+}
