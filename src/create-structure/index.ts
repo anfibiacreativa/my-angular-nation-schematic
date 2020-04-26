@@ -17,6 +17,20 @@ import { strings } from '@angular-devkit/core';
 // per file.
 export function createStructure(_options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
-    return tree;
+    const angularConfig = tree.read('/angular.json');
+
+    if (!angularConfig) {
+      throw new SchematicsException('You are not in an Angular Project. Good bye!');
+    }
+
+    const source = apply(url('./files'), [
+      template({
+        ...strings,
+        ..._options as object
+      } as any),
+      move(_options.path)
+    ]);
+
+    return chain([branchAndMerge(chain([mergeWith(source)]))])(tree, _context);
   };
 }
