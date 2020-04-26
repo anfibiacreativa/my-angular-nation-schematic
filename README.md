@@ -1,28 +1,25 @@
-# Getting Started With Schematics
+This schematics can be executed to replicate a folder strcuture across many repos!
 
-This repository is a basic Schematic implementation that serves as a starting point to create and publish Schematics to NPM.
 
-### Testing
+Steps to install, after cloning the repo (with npm)
 
-To test locally, install `@angular-devkit/schematics-cli` globally and use the `schematics` command line tool. That tool acts the same as the `generate` command of the Angular CLI, but also has a debug mode.
-
-Check the documentation with
+1. Move to the schematics package root folder and install the package
 ```bash
-schematics --help
+cd my-angular-nation-schematic && npm install
 ```
 
-### Unit Testing
-
-`npm run test` will run the unit tests, using Jasmine as a runner and test framework.
-
-### Publishing
-
-To publish, simply do:
-
+2. Build the package with 
 ```bash
 npm run build
-npm publish
 ```
 
-That's it!
- 
+3. Link this project to your node version, so you don't have to install it as part of the project it will be executed on, running 
+`npm link`
+
+You're set! Now you can exectute it from an Angular project, by linking it to this schematics project and generating the aliased schematics, like this
+
+```bash
+cd [path-to-your-project] &&
+npm link my-angular-nation-schematic &&
+ng generate my-angular-nation-schematic:my-angular-nation-schematic --name=my-angular-nation-schematic --path=/src/app 
+```
