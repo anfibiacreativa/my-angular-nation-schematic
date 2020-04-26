@@ -3,15 +3,15 @@ import {
   SchematicContext,
   Tree,
   apply,
-  chain,
   url,
+  chain,
   template,
+  mergeWith,
   move,
   branchAndMerge,
-  mergeWith
+  SchematicsException
 } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
-
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
